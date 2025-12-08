@@ -1,0 +1,1 @@
+This directory contains the React contexts for the application.

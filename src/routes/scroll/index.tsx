@@ -19,7 +19,7 @@ function Scroll() {
       .setup({
         step: ".step",
         offset: 0.5, // 0.5 means triggering when element hits middle of screen
-        debug: true, // Adds a horizontal line to visualize the trigger point
+        debug: false, // Adds a horizontal line to visualize the trigger point
       })
       .onStepEnter((response) => {
         // { element, index, direction }
@@ -39,10 +39,6 @@ function Scroll() {
 
   return (
     <div className="scroll-container">
-      <div className="header">
-        <h1>Scroll Down</h1>
-      </div>
-
       {/* 
         We use conditional styling here. 
         If the currentStepIndex matches this div's index, apply the active color.
@@ -73,10 +69,6 @@ function Scroll() {
         style={{ backgroundColor: currentStepIndex === 2 ? '#fdffb6' : '#eee'}}
       >
         <h2>Card C (Index 2)</h2>
-      </div>
-
-      <div className="footer">
-        <h2>End</h2>
       </div>
     </div>
   )

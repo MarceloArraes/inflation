@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--footer-bg-color, #343a40);
+  color: var(--footer-text-color, #fff);
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+[data-theme='dark'] .footer {
+  --footer-bg-color: #121212;
+  --footer-text-color: rgba(255, 255, 255, 0.6);
+}

@@ -6,14 +6,6 @@
   font-family: sans-serif;
   padding-bottom: 50vh; /* Extra space at bottom to allow last card to scroll up */
 }
-
-.header, .footer {
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .step {
   /* Crucial: Give the steps height and margin so you can scroll */
   height: 200px;

@@ -1,0 +1,20 @@
+.header {
+  background-color: var(--header-bg-color, #f8f9fa);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--header-border-color, #e0e0e0);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: var(--header-text-color, #343a40);
+  transition: color 0.3s;
+}
+
+[data-theme='dark'] .header {
+  --header-bg-color: #1a1a1a;
+  --header-border-color: #333;
+  --header-text-color: #fff;
+}
