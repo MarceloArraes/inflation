@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from '@tanstack/react-router';
 import DarkModeToggle from './DarkModeToggle';
 import './Navbar.css';
@@ -15,6 +14,9 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/scroll">Scroll</Link>
+        </li>
+        <li>
+          <Link to="/narrative">Narrative</Link>
         </li>
       </ul>
       <DarkModeToggle />

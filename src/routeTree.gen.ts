@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as NarrativeRouteImport } from './routes/narrative'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ScrollIndexRouteImport } from './routes/scroll/index'
 
+const NarrativeRoute = NarrativeRouteImport.update({
+  id: '/narrative',
+  path: '/narrative',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -32,35 +38,46 @@ const ScrollIndexRoute = ScrollIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/narrative': typeof NarrativeRoute
   '/scroll': typeof ScrollIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/narrative': typeof NarrativeRoute
   '/scroll': typeof ScrollIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/narrative': typeof NarrativeRoute
   '/scroll/': typeof ScrollIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/scroll'
+  fullPaths: '/' | '/about' | '/narrative' | '/scroll'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/scroll'
-  id: '__root__' | '/' | '/about' | '/scroll/'
+  to: '/' | '/about' | '/narrative' | '/scroll'
+  id: '__root__' | '/' | '/about' | '/narrative' | '/scroll/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  NarrativeRoute: typeof NarrativeRoute
   ScrollIndexRoute: typeof ScrollIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/narrative': {
+      id: '/narrative'
+      path: '/narrative'
+      fullPath: '/narrative'
+      preLoaderRoute: typeof NarrativeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  NarrativeRoute: NarrativeRoute,
   ScrollIndexRoute: ScrollIndexRoute,
 }
 export const routeTree = rootRouteImport
